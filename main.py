@@ -3,3 +3,6 @@
 #2. Ensure correct player wins given round based on players choices
 #3. Best of three to determine gamee winner
 #4. Option of single player(human vs AI) or multiplayer(human vs human)
+import game
+
+game.prompt_player()
