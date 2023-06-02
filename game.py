@@ -30,12 +30,40 @@ def run_game():
          print('Choose 4 for Lizard')
          time.sleep(1)
          print('Choose 5 for Spock')
+         single_player()
      elif players == '2':
-         pass
+         print('Wonderful. Your options are as follows.')
+         time.sleep(1)
+         print('Choose 1 for Rock')
+         time.sleep(1)
+         print('Choose 2 for Paper')
+         time.sleep(1)
+         print('Choose 3 for Scissors')
+         time.sleep(1)
+         print('Choose 4 for Lizard')
+         time.sleep(1)
+         print('Choose 5 for Spock')
+         multiplayer()
+         
      
-def first_round():
-    round_one_gesture = input('Please make your selection.')
-    time.sleep(1)
-    if round_one_gesture == '1':
+def single_player():
+    player_choice = input('Please make your selection...')
+    if player_choice == '1':
         print('You have chosen Rock.')
-    
+    elif player_choice == '2':
+        print('You have chosen Paper.')
+    elif player_choice == '3':
+        print('You have chosen Scissors.')
+    elif player_choice == '4':
+        print('You have chosen Lizard.')
+    elif player_choice == '5':
+        print('You have chosen Spock.')
+    else:
+        print('I am sorry. I did not understand. Lets try again.')
+        time.sleep(1)
+        player_choice
+    ai_choice = AiPlayer().gesture_choices
+        
+def multiplayer():
+    player_one = input('Player One, please make your selection...')
+    player_two = input('Player Two, please make your selection.')
