@@ -5,6 +5,35 @@ import time
 
 from ai import AiPlayer
 
+def winner_winner(player_choice, ai_choice):
+    if player_choice == ai_choice:
+        return 'Its a tie! Go again.'
+    elif player_choice == '1':
+        if ai_choice == 'Scissors' or 'Lizard':
+            return 'Player One wins the round.'
+        else:
+            return 'AI wins the round.'
+    elif player_choice == '2':
+        if ai_choice == 'Rock' or 'Spock':
+            return 'Player One wins the round.'
+        else:
+            return 'AI wins the round.'
+    elif player_choice == '3':
+        if ai_choice == 'Paper' or 'Lizard':
+            return 'Player One wins the round.'
+        else:
+            return 'AI wins the round.'
+    elif player_choice == '4':
+        if ai_choice == 'Spock' or 'Paper':
+            return 'Player One wins the round.'
+        else:
+            return 'AI wins the round.'
+    elif player_choice == '5':
+        if ai_choice == 'Scissors' or 'Rock':
+            return 'Player One wins the round'
+        else:
+            return 'AI wins the round.'
+
 def prompt_player():
     user_input = input('Welcome, Player. Have you played this game before? Y/N')
     time.sleep(1)
