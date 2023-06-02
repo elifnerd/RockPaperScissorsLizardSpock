@@ -3,6 +3,8 @@
 #Create a user input funct for game players(will have option for unsatisfactory user input)
 import time
 
+from ai import AiPlayer
+
 def prompt_player():
     user_input = input('Welcome, Player. Have you played this game before? Y/N')
     time.sleep(2)
@@ -28,10 +30,12 @@ def run_game():
          print('Choose 4 for Lizard')
          time.sleep(1)
          print('Choose 5 for Spock')
-
-def first_round():
-    first_choice = input('Please make your selection now.')
-    if first_choice == '1' and 
-         
-     if players == '2':
+     elif players == '2':
          pass
+     
+def first_round():
+    round_one_gesture = input('Please make your selection.')
+    time.sleep(1)
+    if round_one_gesture == '1':
+        print('You have chosen Rock.')
+    
