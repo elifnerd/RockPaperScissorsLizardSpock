@@ -33,10 +33,19 @@ def prompt_player():
         time.sleep(1)
         print('Lets get started.')
     else:
-        print('Im sorry. I didnt understand. Have you played this game before? Please choose Y or N.')
-        user_input
+        print('Im sorry. I didnt understand.')
+    while user_input != 'Y' or 'N':
+        print(prompt_player())
         
 def single_player():
+    player_score = 0
+    ai_score = 0
+    round_count = 0
+    
+    while player_score < 2 and ai_score < 2:
+        round_count += 1
+        print('Round', round_count, 'Lets go again.')
+        
     player_choice = input('Please make your selection...')
     if player_choice == '1':
         print('You have chosen Rock.')
