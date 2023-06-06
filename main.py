@@ -6,4 +6,4 @@
 import game
 
 game.prompt_player()
-game.run_game()
+game.play_game()

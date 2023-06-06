@@ -9,7 +9,7 @@ from ai import AiPlayer
 
 def winner_winner(player_one_choice, player_two_choice):
     if player_one_choice == player_two_choice:
-        return 'Its a tie! Go again.'
+        return 'tie'
     elif player_one_choice == '1':
         if player_two_choice == '3' or player_two_choice == '4':
             return 'Player One wins!'
@@ -42,7 +42,7 @@ def play_game():
     
         
 def display_gameplay_rules():
-    print('Great. This is much like your classic game of Rock, Paper, Scissors - with a little twist.')
+    print('This is much like your classic game of Rock, Paper, Scissors - with a little twist.')
     time.sleep(1)
     print('In the classic game, Rock crushes Scissors, Scissors cuts Paper, and Paper covers Rock.')
     time.sleep(1)
@@ -62,40 +62,42 @@ def display_gameplay_rules():
     time.sleep(1)
     print('and Spock vaporizes Rock.')
     time.sleep(1)
+    print('The winner will be the best out of three.')
 
-def prompt_player():
-    user_input = input('Welcome, Player. Have you played this game before? Y/N')
-    if user_input == 'Y':
-        print('Great. Welcome back! Lets get started.')
-    elif user_input == 'N':
-        print(display_gameplay_rules())
-    else:
-        return 'Im sorry. I didnt understand.'
-        user_input()
-        
-def single_player():
+def single_player_mode():
     player_score = 0
     ai_score = 0
     round_count = 0
     
     while player_score < 2 and ai_score < 2:
-        round_count += 1
-        print('Round', round_count, 'Lets go again.')
+        print('Please make your selection: ')
+        time.sleep(1)
+        print('Select 1 for Rock')
+        time.sleep(1)
+        print('Select 2 for Paper')
+        time.sleep(1)
+        print('Select 3 for Scissors')
+        time.sleep(1)
+        print('Select 4 for Lizard')
+        time.sleep(1)
+        print('Select 5 for Spock')
         
-    gesture_choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']    
-    player_choice = input('Please make your selection...')
-    ai_choice = random.choice(gesture_choices)
+        player_choice = input('Your move: ')
+        gesture_choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
+        player_choice = gesture_choices[int(player_choice) - 1]
+        ai_choice = random.choice(gesture_choices)
 
     print('You have chosen', player_choice)
     print('AI has chosen', ai_choice)
+    round_count += 1
 
-    winner = winner_winner(player_choice, ai_choice)
+    round_winner = winner_winner(player_choice, ai_choice)
     
-    if winner == 'tie':
+    if round_winner == 'tie':
         print('Its a tie!')
-    elif winner == 'Player One':
+    elif round_winner == 'Player One':
         print('Player One wins this round.')
-        player_score += 1
+        player_one_score += 1
     else:
         print('AI wins this round.')
         ai_score += 1
@@ -111,7 +113,7 @@ def single_player():
         
         
     
-def multiplayer():
+def multiplayer_mode():
     player_one_score = 0
     player_two_score = 0
     round_count = 0
@@ -147,3 +149,19 @@ def multiplayer():
         print('Congratulations, Player One! You have won the game.')
     else:
         print('Congratulations, Player Two! You have won the game.')
+
+
+def prompt_player():
+    user_input = input('Welcome, player(s)! How many players do we have today? Select 1 or 2...')
+    if user_input == '1':
+        print('Fantastic. You will be playing against our AI program today. Lets get started.')
+        return display_gameplay_rules()
+        return single_player_mode()
+    elif user_input == '2':
+        print('Fantastic. Your names will be Player One and Player Two. Lets get started.')
+        return display_gameplay_rules()
+        return multiplayer_mode()
+    else:
+        print('I am sorry. I did not understand. Lets try again.')
+        return user_input
+    
