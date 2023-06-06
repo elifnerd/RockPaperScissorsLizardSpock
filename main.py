@@ -5,5 +5,5 @@
 #4. Option of single player(human vs AI) or multiplayer(human vs human)
 import game
 
+game.welcome_and_display_gameplay_rules()
 game.prompt_player()
-game.play_game()

@@ -35,13 +35,10 @@ def winner_winner(player_one_choice, player_two_choice):
             return 'Player One wins!'
         else:
             return 'Player Two wins!'
-        
-def play_game():
-    player_one_score = 0
-    player_two_score = 0
     
         
-def display_gameplay_rules():
+def welcome_and_display_gameplay_rules():
+    print('Welcome to Rock, Paper, Scissors, Lizard, Spock!')
     print('This is much like your classic game of Rock, Paper, Scissors - with a little twist.')
     time.sleep(1)
     print('In the classic game, Rock crushes Scissors, Scissors cuts Paper, and Paper covers Rock.')
@@ -82,10 +79,10 @@ def single_player_mode():
         time.sleep(1)
         print('Select 5 for Spock')
         
-        player_choice = input('Your move: ')
-        gesture_choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
-        player_choice = gesture_choices[int(player_choice) - 1]
-        ai_choice = random.choice(gesture_choices)
+    player_choice = input('Your move: ')
+    gesture_choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
+    player_choice = gesture_choices[int(player_choice) - 1]
+    ai_choice = random.choice(gesture_choices)
 
     print('You have chosen', player_choice)
     print('AI has chosen', ai_choice)
@@ -152,14 +149,12 @@ def multiplayer_mode():
 
 
 def prompt_player():
-    user_input = input('Welcome, player(s)! How many players do we have today? Select 1 or 2...')
+    user_input = input('How many players do we have today? Select 1 or 2...')
     if user_input == '1':
         print('Fantastic. You will be playing against our AI program today. Lets get started.')
-        return display_gameplay_rules()
         return single_player_mode()
     elif user_input == '2':
         print('Fantastic. Your names will be Player One and Player Two. Lets get started.')
-        return display_gameplay_rules()
         return multiplayer_mode()
     else:
         print('I am sorry. I did not understand. Lets try again.')
